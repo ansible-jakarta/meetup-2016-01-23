@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars:
+    my_var1: value1
+    my_var2: value2
+  tasks:
+    - template:
+        dest: /tmp/my_config.txt
+        src: my_config.txt.j2

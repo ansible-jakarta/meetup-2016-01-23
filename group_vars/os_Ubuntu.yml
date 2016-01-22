@@ -1,0 +1,5 @@
+---
+# file: group_vars/os_Ubuntu
+
+apache_pkg: apache2
+apache_svc: apache2

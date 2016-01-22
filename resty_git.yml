@@ -1,0 +1,20 @@
+---
+# file: resty_git.yml
+
+- hosts: all
+  vars_prompt:
+    - name: resty_version
+      prompt: "resty version"
+      default: 2.2
+      private: false
+  tasks:
+    - name: install git
+      become: true
+      package:
+        name: git
+        state: present
+    - name: resty git repo
+      git:
+        dest:  ~/resty
+        repo:  https://github.com/micha/resty.git
+        version: "{{ resty_version }}"

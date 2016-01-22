@@ -1,0 +1,17 @@
+---
+# file: apache_try2.yml
+# package and service names parameterized by OS group
+
+- hosts: all
+  become: true
+  tasks:
+    - name: install apache
+      package:
+        name: "{{ apache_pkg }}"
+        state: latest
+
+    - name: start apache
+      service:
+        name: "{{ apache_svc }}"
+        enabled: true
+        state: started

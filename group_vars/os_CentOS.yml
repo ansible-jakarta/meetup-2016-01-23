@@ -1,0 +1,5 @@
+---
+# file: group_vars/os_CentOS
+
+apache_pkg: httpd
+apache_svc: httpd

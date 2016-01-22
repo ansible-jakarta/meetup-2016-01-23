@@ -1,0 +1,21 @@
+---
+# file: apache_try3.yml
+# now with dynamic grouping
+
+- hosts: all
+  become: true
+  tasks:
+    - group_by: key=os_{{ ansible_distribution }}
+
+- hosts: all
+  tasks:
+    - name: install apache
+      package:
+        name: "{{ apache_pkg }}"
+        state: latest
+
+    - name: start apache
+      service:
+        name: "{{ apache_svc }}"
+        enabled: true
+        state: started

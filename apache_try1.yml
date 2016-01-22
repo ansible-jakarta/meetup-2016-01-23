@@ -1,0 +1,28 @@
+---
+# file: apache_try1.yml
+
+- hosts: ubuntu
+  become: true
+  tasks:
+    - name: install apache
+      apt:
+        name: apache2
+        state: present
+    - name: start apache
+      service:
+        name: apache2
+        enabled: true
+        state: started
+
+- hosts: centos
+  become: true
+  tasks:
+    - name: install apache
+      yum:
+        name:  httpd
+        state: present
+    - name: start apache
+      service:
+        name: httpd
+        enabled: true
+        state: started

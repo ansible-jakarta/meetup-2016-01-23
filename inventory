@@ -1,0 +1,12 @@
+[trusty]
+192.168.20.11
+
+[precise]
+192.168.20.12
+
+[ubuntu:children]
+precise
+trusty
+
+[centos]
+192.168.20.13

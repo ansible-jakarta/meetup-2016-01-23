@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: Adds or removes an SSH authorized key
+      authorized_key:
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+        state: present
+        user: vagrant
